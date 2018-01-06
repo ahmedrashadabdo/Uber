@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.uber.uber.DriverLoginActivity"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/m_left_right"
+    android:layout_marginRight="@dimen/m_left_right"
+    android:layout_marginTop="@dimen/space20"
+    android:gravity="center_horizontal"
+    >
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/userlogin"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space15"
+        android:hint="Email"
+        android:id="@+id/email"
+        android:inputType="textEmailAddress"
+        style="@style/EditText"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space15"
+        android:inputType="textPassword"
+        android:id="@+id/password"
+        android:hint="Password"
+        style="@style/EditText"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space15"
+        android:text="Registration"
+        style="@style/ButtonOrange"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space20"
+        android:text=""
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/textGray"
+        />
+
+</LinearLayout>

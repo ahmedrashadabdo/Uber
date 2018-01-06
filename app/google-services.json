@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1069837976213",
+    "firebase_url": "https://uber-aden.firebaseio.com",
+    "project_id": "uber-aden",
+    "storage_bucket": "uber-aden.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069837976213:android:fb80c320bad5b132",
+        "android_client_info": {
+          "package_name": "com.example.uber.uber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069837976213-qsnis5fkvdjm85trecua4t7cm0frogkb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.uber.uber",
+            "certificate_hash": "95d32ae426810a346d044c36405efa511137df1a"
+          }
+        },
+        {
+          "client_id": "1069837976213-theh4js0p5qmq150b1io9fcrc02k8f25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBteBxxySrx2valtWZJVNtyGCSAFWFOd0o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069837976213-theh4js0p5qmq150b1io9fcrc02k8f25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

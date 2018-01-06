@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.uber.uber.HomeActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/m_left_right"
+        android:layout_marginRight="@dimen/m_left_right"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:id="@+id/driver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I'm Driver"
+            style="@style/ButtonOrange"/>
+        <Button
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I'm User"
+            android:layout_marginTop="@dimen/space20"
+            style="@style/ButtonWhite"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutDots"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dots_height"
+        android:layout_marginBottom="@dimen/space20"
+        android:layout_above="@id/ll_bottom"
+        android:gravity="center"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+   <!-- <android.support.v4.view.ViewPager
+        android:layout_above="@id/layoutDots"
+        android:layout_below="@id/iv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/space20"
+        android:layout_marginBottom="@dimen/space20"
+        android:id="@+id/pager"
+        android:overScrollMode="never"/> -->
+</RelativeLayout>
