@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--<service android:name=".onAppKilled" android:stopWithTask="false"/>-->
-        <activity android:name=".DriverMapActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,8 +48,8 @@
             android:value="@string/google_maps_key" />
 
 
+        <activity android:name=".DriverMapsActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".SplashActivity" />
         <activity android:name=".CustomerLoginActivity" />
         <!--<activity android:name=".UserMapsActivity"></activity>-->
     </application>
