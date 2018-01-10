@@ -122,22 +122,22 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
     public void onLocationChanged(Location location) {
 
 
-        /*if(getApplicationContext()!=null)
+        if(getApplicationContext()!=null)
 
-        {*/
+        {
         mLastLocation = location;
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
 
 
-        /*String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driversAvailable");
 
         GeoFire geoFire = new GeoFire(ref);
-        geoFire.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));*/
+        geoFire.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));
          }
-    /*}*/
+    }
 
 
 
