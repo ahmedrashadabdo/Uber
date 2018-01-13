@@ -1,4 +1,4 @@
-package com.example.uber.uber;
+package com.example.uber.uber.Drivers;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,11 +8,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 
+import com.example.uber.uber.HomeActivity;
+import com.example.uber.uber.R;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.common.ConnectionResult;
@@ -122,7 +122,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
     public void onLocationChanged(Location location) {
 
 
-        if(getApplicationContext()!=null)
+        if(getApplicationContext()!=null) //Returns the context for the entire application (the process all the Activities are running inside of). Use this instead of the current Activity context if you need a context tied to the lifecycle of the entire application, not just the current Activity.
 
         {
         mLastLocation = location;
@@ -132,7 +132,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
 
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driversAvailable");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("DriversAvailable");
 
         GeoFire geoFire = new GeoFire(ref);
         geoFire.setLocation(userId, new GeoLocation(location.getLatitude(), location.getLongitude()));
@@ -166,7 +166,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
 
             return;
         }
-
+        //the location APIs in Google Play services to  Receiving Location Updates
         LocationServices.FusedLocationApi.requestLocationUpdates(
                 mGoogleApiClient, mLocationRequest, this);
 
@@ -183,9 +183,10 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
     protected void onStop() {
         super.onStop();
 
+        //Stopping Receiving Location Updates
         LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid(); // to get all drivers online in app from auth
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("driversAvailable");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("DriversAvailable");
 
         GeoFire geoFire = new GeoFire(ref);
         geoFire.removeLocation(userId);

@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.uber.uber.Drivers.DriverLoginActivity;
+import com.example.uber.uber.Users.UserLoginActivity;
+
 public class HomeActivity extends AppCompatActivity {
 
     //Declare Var
@@ -34,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         btn_User.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, CustomerLoginActivity.class);
+                Intent intent = new Intent(HomeActivity.this, UserLoginActivity.class);
                 startActivity(intent);
                 finish();
                 return;

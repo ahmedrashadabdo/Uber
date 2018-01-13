@@ -7,8 +7,8 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- is for precise location access using GPS or cell towers and Wi-Fi -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- permission is for approximate location access using cell towers -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- The permission you choose determines the accuracy of the location returned by the API and is for precise location access using GPS or cell towers and Wi-Fi -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- the API returns a location with an accuracy approximately equivalent to a city block. and permission is for approximate location access using cell towers -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.LOCATION_REQUEST_CODE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -28,8 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DriverLoginActivity" />
-        <activity android:name=".CustomerMapActivity"/>
+        <activity android:name=".Drivers.DriverLoginActivity" />
+        <activity android:name=".Users.UserMapActivity"/>
         <!--<activity android:name=".DriverMapsActivity"/>-->
         <!--<activity android:name=".DriverMapActivity"
             android:label="@string/title_activity_driver_maps" />-->
@@ -48,9 +48,9 @@
             android:value="@string/google_maps_key" />
 
 
-        <activity android:name=".DriverMapsActivity" />
+        <activity android:name=".Drivers.DriverMapsActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".CustomerLoginActivity" />
+        <activity android:name=".Users.UserLoginActivity" />
         <!--<activity android:name=".UserMapsActivity"></activity>-->
     </application>
 

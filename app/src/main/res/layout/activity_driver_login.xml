@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.uber.uber.DriverLoginActivity"
+    tools:context="com.example.uber.uber.Drivers.DriverLoginActivity"
     android:orientation="vertical"
     android:layout_marginLeft="@dimen/m_left_right"
     android:layout_marginRight="@dimen/m_left_right"
