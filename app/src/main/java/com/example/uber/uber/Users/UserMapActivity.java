@@ -47,7 +47,7 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     private Button mLogout, mRequest;
 
     private LatLng pickupLocation;
-    private Marker pickupMarker;
+    private Marker pickupMarker;    //In run time
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         mapFragment.getMapAsync(this);
 
 
-        mLogout = (Button) findViewById(R.id.logout);
+        mLogout  = (Button) findViewById(R.id.logout);
         mRequest = (Button) findViewById(R.id.request);
 
         mLogout.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +69,7 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
                 Intent intent = new Intent(UserMapActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
+
                 return;
             }
         });
@@ -76,15 +77,17 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 /*
+                * Save the current location @mLastLocation in @UserRequest table for the user have the ID @userId
+                * */
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserRequest");
                 GeoFire geoFire = new GeoFire(ref);
                 geoFire.setLocation(userId, new GeoLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude()));
 
+                //Save the location of Recquest and make a marker for it.
                 pickupLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
                 pickupMarker = mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Pickup Here").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_pickup)));
-
                 mRequest.setText("Getting your Driver....");
 
                 getClosestDriver();
@@ -96,15 +99,19 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     private Boolean driverFound = false;
     private String driverFoundID;
 
+    /*
+    * Get the closest Drivers from the location of recquest @pickupLocation
+    * */
     private void getClosestDriver(){
         DatabaseReference driverLocation = FirebaseDatabase.getInstance().getReference().child("DriversAvailable");
-
         GeoFire geoFire = new GeoFire(driverLocation);
+        //Looking for the near drivers from @pickupLocation in radius 1km
         GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(pickupLocation.latitude, pickupLocation.longitude), radius);
         geoQuery.removeAllListeners();
 
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
             @Override
+            //If a driver avalibe save @key in @driverFoundID to use later
             public void onKeyEntered(String key, GeoLocation location) {
                 if (!driverFound) {
                     driverFound = true;
@@ -192,8 +199,6 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
     }
-
-
 
     @Override
     protected void onStop() {

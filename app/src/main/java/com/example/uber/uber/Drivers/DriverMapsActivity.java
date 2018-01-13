@@ -193,4 +193,6 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         geoFire.removeLocation(userId);
 
     }
+
+
 }
