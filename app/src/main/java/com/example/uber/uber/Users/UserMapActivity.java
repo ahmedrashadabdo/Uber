@@ -98,7 +98,7 @@ public class UserMapActivity extends FragmentActivity implements OnMapReadyCallb
     private int radius = 1;
     private Boolean driverFound = false;
     private String driverFoundID;
-
+//
     /*
     * Get the closest Drivers from the location of recquest @pickupLocation
     * */
