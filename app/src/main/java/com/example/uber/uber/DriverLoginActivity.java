@@ -18,9 +18,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DriverLoginActivity extends AppCompatActivity {
+
+    //Declare Var
     private EditText mEmail, mPassword;
     private Button  btn_Login, btn_Registration;
 
+    //Declare an instance of FirebaseAuth
     private FirebaseAuth mAut;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
@@ -29,11 +32,14 @@ public class DriverLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_login);
 
+        //initialize the FirebaseAuth instance.
         mAut= FirebaseAuth.getInstance();
 
         firebaseAuthListener= new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                //Check if the user signed in on not
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if(user!=null){
                     Intent intent = new Intent(DriverLoginActivity.this, DriverMapsActivity.class);
@@ -51,27 +57,26 @@ public class DriverLoginActivity extends AppCompatActivity {
         btn_Registration= (Button) findViewById(R.id.registration);
 
         // when click on register button
-
         btn_Registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                final String email = mEmail.getText().toString();
-                final String password = mPassword.getText().toString();
-                mAut.createUserWithEmailAndPassword(email, password).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(DriverLoginActivity.this, "Sign up Error", Toast.LENGTH_SHORT).show();
-                        } else {
-                            String user_id = mAut.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
-                            current_user_db.setValue(true);
+            final String email = mEmail.getText().toString();
+            final String password = mPassword.getText().toString();
+            mAut.createUserWithEmailAndPassword(email, password).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(DriverLoginActivity.this, "Sign up Error", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String user_id = mAut.getCurrentUser().getUid();
+                        DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
+                        current_user_db.setValue(true);
 
 
-                        }
                     }
-                });
+                }
+            });
             }
         });
 

@@ -8,7 +8,8 @@ import android.widget.Button;
 
 public class HomeActivity extends AppCompatActivity {
 
-private Button btn_Driver, btn_User;
+    //Declare Var
+    private Button btn_Driver, btn_User;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ private Button btn_Driver, btn_User;
         btn_Driver= (Button) findViewById(R.id.driver);
         btn_User= (Button) findViewById(R.id.user);
 
+        // When Click Driver Buttton
         btn_Driver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,6 +30,7 @@ private Button btn_Driver, btn_User;
             }
         });
 
+        // When Click User Buttton
         btn_User.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

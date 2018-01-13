@@ -6,10 +6,10 @@
     tools:context="com.example.uber.uber.CustomerMapActivity" >
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/logout"
-        android:text="logout"/>
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@mipmap/ic_logout"/>
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
