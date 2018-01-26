@@ -16,4 +16,5 @@
     <color name="separator">#D0D4D9</color>
     <color name="white">#FFFFFF</color>
     <color name="whitegrey">#F9F9F9</color>
+    <color name="links">#000</color>
 </resources>

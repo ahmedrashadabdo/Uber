@@ -68,7 +68,7 @@ public class DriverLoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
-                        Toast.makeText(DriverLoginActivity.this, "Sign up Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DriverLoginActivity.this, "This Account Already exist !", Toast.LENGTH_SHORT).show();
                     } else {
                         String user_id = mAut.getCurrentUser().getUid();
                         DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
